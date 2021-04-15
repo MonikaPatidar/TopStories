@@ -1,0 +1,150 @@
+.App {
+    margin-top: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+body {
+    background-color: #f7f8f9 !important;
+    font-family: sans-serif;
+}
+
+/*Story Page Starts*/
+.story-div {
+    padding-bottom: 25px;
+}
+.main-heading {
+    color: #222;
+    font-weight: 600;
+}
+.story-div .box-design {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+.story-div .user-info {
+    display: flex;
+    align-items: center;
+}
+.story-div .user-info .user-pic {
+    margin-right: 15px;
+}
+.story-div .user-info .user-name p {
+    margin: 0px;
+}
+.story-div .user-info .writer-name {
+    text-transform: uppercase;
+    font-size: 18px;
+}
+.story-div .user-info .date {
+    color: #999;
+}
+.story-div .story-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+.story-div .post-img {
+    margin-left: 15px;
+}
+.story-div .alert-heading {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #222;
+    font-weight: 600;
+}
+.story-div .comment-box {
+    display: flex;
+    margin-top: 30px;
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 20px;
+}
+.story-div .comment-box .comment-pic {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+.story-div .comment-box .comment-right {
+    margin-left: 10px;
+}
+.story-div .comment-box .comment-text {
+    margin-bottom: 5px;
+    color: #777777;
+    font-size: 15px;
+}
+.story-div .comment-box .comment-by {
+    text-transform: capitalize;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.comment-head {
+    border-bottom: 1px solid #eaecee;
+}
+.comment-head button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    padding: 0;
+    padding-right: 35px;
+    padding-bottom: 7px;
+    border-radius: 0;
+    height: 35px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.comment-head button:hover,
+.comment-head button:focus,
+.comment-head button:active {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.comment-head button:active {
+    color: #333;
+}
+.comment-head button .icon {
+    margin-right: 10px;
+}
+
+/*.comment-head .btn-link {
+    border-bottom: 3px solid #333;
+}*/
+/*Story Page Ends*/
