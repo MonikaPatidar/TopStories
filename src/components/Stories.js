@@ -16,6 +16,28 @@ function Stories() {
         })
 
     useEffect(()=>{
+        const getTopStory=()=>{
+            fetch(`../Stories.json`, {
+                headers : { 
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                 }
+              })
+            .then((response) =>
+            {
+                if (!response.ok)
+                    throw new Error("HTTP error " + response.status);
+            
+                return response.json();
+            })
+            .then((data) => {
+               var Top=data.slice(Math.max(data.length - 10))
+                setstate({...state,AllId:Top, storyId:state.storyId+1})
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        }
         getTopStory()
     },[])
 
@@ -26,29 +48,7 @@ function Stories() {
         }
     },[state.storyId])
 
-    const getTopStory=()=>{
-        fetch(`../Stories.json`, {
-            headers : { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-             }
-          })
-        .then((response) =>
-        {
-            if (!response.ok)
-                throw new Error("HTTP error " + response.status);
-        
-            return response.json();
-        })
-        .then((data) => {
-           var Top=data.slice(Math.max(data.length - 10))
-            setstate({...state,AllId:Top, storyId:state.storyId+1})
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    }
-
+    
     const getstory=(num)=>{
          setstate({...state,
                 storyBy:state.AllId[num].storyBy,
