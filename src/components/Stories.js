@@ -37,11 +37,20 @@ function Stories() {
             .catch((error) => {
                 console.error(error);
             });
-        }
+        };
         getTopStory()
     },[])
 
     useEffect(()=>{
+        const getstory=(num)=>{
+            setstate({...state,
+                   storyBy:state.AllId[num].storyBy,
+                   score:state.AllId[num].score,
+                   storyTitle:state.AllId[num].storyTitle,
+                   link:state.AllId[num].url,
+                   kidsComment:state.AllId[num].kidsComment
+               })
+       };   
         if(state.storyId > 0 && state.storyId < 11)
         {
             getstory(state.storyId) 
@@ -49,16 +58,7 @@ function Stories() {
     },[state.storyId])
 
     
-    const getstory=(num)=>{
-         setstate({...state,
-                storyBy:state.AllId[num].storyBy,
-                score:state.AllId[num].score,
-                storyTitle:state.AllId[num].storyTitle,
-                link:state.AllId[num].url,
-                kidsComment:state.AllId[num].kidsComment
-            })
-    }
-
+    
     const previousStory=()=>{
         if(state.storyId > 0){
             setstate({
