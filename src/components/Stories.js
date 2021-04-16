@@ -32,7 +32,7 @@ function Stories() {
             })
             .then((data) => {
                var Top=data.slice(Math.max(data.length - 10))
-                setstate({...state,AllId:Top, storyId:state.storyId+1})
+                setstate(state=>({...state,AllId:Top, storyId:state.storyId+1}))
             })
             .catch((error) => {
                 console.error(error);
@@ -43,13 +43,13 @@ function Stories() {
 
     useEffect(()=>{
         const getstory=(num)=>{
-            setstate({...state,
+            setstate(state=>({...state,
                    storyBy:state.AllId[num].storyBy,
                    score:state.AllId[num].score,
                    storyTitle:state.AllId[num].storyTitle,
                    link:state.AllId[num].url,
                    kidsComment:state.AllId[num].kidsComment
-               })
+               }))
        };   
         if(state.storyId > 0 && state.storyId < 11)
         {
