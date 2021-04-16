@@ -75,13 +75,13 @@ function Stories() {
                             and scrambled it to make a type specimen book. It has survived not 
                             only five centuries,
                         </p>
-                        <a href="http://www.getdropbox.com/u/2/screencast.html">
+                        {/* <a href="http://www.getdropbox.com/u/2/screencast.html">
                             <Button 
                                 variant="danger" 
                                 size="sm">
                                 <Book /> Continue Reading..
                             </Button>
-                        </a>
+                        </a> */}
                     </Alert>
                 </Col>
             </Row>
