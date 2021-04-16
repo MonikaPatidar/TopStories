@@ -58,6 +58,11 @@ body {
     border-radius: 15px;
     margin-top: 25px;
 }
+.story-div .box-design.without-bg {
+    padding-left: 0;
+    padding-right: 0;
+    background: none;
+}
 .story-div .user-info {
     display: flex;
     align-items: center;
@@ -143,8 +148,34 @@ body {
 .comment-head button .icon {
     margin-right: 10px;
 }
-
+.list-group {
+    justify-content: center;
+}
 /*.comment-head .btn-link {
     border-bottom: 3px solid #333;
 }*/
 /*Story Page Ends*/
+
+/*Responsive CSS*/
+@media screen and (max-width: 767px) {
+    .App {
+        margin: 20px;
+    }
+    .main-heading {
+        font-size: 24px;
+    }
+    .story-div .box-design {
+        padding: 15px;
+    }
+    .story-div .story-title {
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .story-div .post-img {
+        margin-bottom: 25px;
+        margin-left: 0;
+    }
+    .comment-head button:last-child {
+        padding-right: 0;
+    }
+}

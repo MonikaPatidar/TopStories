@@ -11,6 +11,7 @@ function Stories() {
                 storyTitle:'',
                 link:'',
                 kidsComment:[], 
+                showComment:false,
                 AllId:[]
         })
 
@@ -62,7 +63,8 @@ function Stories() {
         if(state.storyId > 0){
             setstate({
                 ...state,
-                storyId:state.storyId-1
+                storyId:state.storyId-1,
+                showComment:false
             })
     }
     
@@ -71,9 +73,16 @@ function Stories() {
         if(state.storyId < 10){
             setstate({
                 ...state,
-                storyId:state.storyId+1
+                storyId:state.storyId+1,
+                showComment:false
             })
         }
+    }
+
+    const HideComment=()=>{
+        setstate({...state,
+                showComment:true
+            })
     }
   
   return (
@@ -82,7 +91,7 @@ function Stories() {
        <h1 className="main-heading">10 great short stories everyone should read</h1>
        <Container className="box-design">
             <Row>
-                <Col xs={6} md={6}>
+                <Col xs={12} md={6}>
                     <div className="user-info">
                         <div className="user-pic">
                             <Image src={userimg} roundedCircle height="50px"/>
@@ -102,10 +111,10 @@ function Stories() {
                 </Col>
             </Row>
             <Row>
-                <Col xs={6} md={4}>
+                <Col xs={12} md={4}>
                     <Image src={storyimg} className="post-img img-fluid" />
                 </Col>
-                <Col xs={6} md={8}>
+                <Col xs={12} md={8}>
                     <Alert variant="light">
                         <Alert.Heading>What Story Says....</Alert.Heading>
                         <p>
@@ -126,53 +135,60 @@ function Stories() {
                 </Col>
             </Row>
         </Container>
-        <ListGroup horizontal>
-            { state.storyId > 1 ?
-                <Button 
-                    variant="light" 
-                    size="sm" onClick={previousStory}>
-                    <ArrowLeftCircle size={40} />
-                </Button>
-                :
-                <Button 
-                    variant="light" 
-                    size="sm" 
-                    disabled >
-                    <ArrowLeftCircle size={40} />
-                </Button>
-            }
-            {state.storyId < 9 ?
-                <Button 
-                    variant="light" 
-                    size="sm" 
-                    onClick={nextStory}>
-                    <ArrowRightCircle size={40} />
-                </Button>
-                :
-                <Button 
-                    variant="light" 
-                    size="sm" 
-                    disabled>
-                    <ArrowRightCircle size={40} />
-                </Button>
-            }
-        </ListGroup>
+        <Container className="box-design without-bg">
+            <Row className="text-center">
+                <Col xs={12} md={12}>
+                    <ListGroup horizontal>
+                        { state.storyId > 1 ?
+                            <Button 
+                                variant="light" 
+                                size="sm" onClick={previousStory}>
+                                <ArrowLeftCircle size={40} />
+                            </Button>
+                            :
+                            <Button 
+                                variant="light" 
+                                size="sm" 
+                                disabled >
+                                <ArrowLeftCircle size={40} />
+                            </Button>
+                        }
+                        {state.storyId < 9 ?
+                            <Button 
+                                variant="light" 
+                                size="sm" 
+                                onClick={nextStory}>
+                                <ArrowRightCircle size={40} />
+                            </Button>
+                            :
+                            <Button 
+                                variant="light" 
+                                size="sm" 
+                                disabled>
+                                <ArrowRightCircle size={40} />
+                            </Button>
+                        }
+                    </ListGroup>
+                </Col>
+            </Row>
+        </Container>
         <Container className="box-design">
             <Row>
                 <Col md={12}>
-                    <Accordion defaultActiveKey="">
+                    <Accordion defaultActiveKey="0">
                         <div className="comment-head">
                             <Button variant="light" size="sm">
                                 <span className="icon"><Trophy /></span>
                                 Score <b>{state.score}</b>
                             </Button>
                             <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                                <Button variant="light" size="sm">
+                                <Button variant="light" size="sm"  onClick={HideComment}>
                                     <span className="icon"><Chat /></span>
                                     Comments
                                 </Button>
                             </Accordion.Toggle>
                         </div>
+                        {state.showComment===true ? 
                         <Accordion.Collapse eventKey="1">
                             <Card.Body className="p-0">
                             {state.kidsComment.map((data, key) => {
@@ -193,6 +209,9 @@ function Stories() {
                             })}
                             </Card.Body>
                         </Accordion.Collapse>
+                        :
+                        ''
+                        }
                     </Accordion>
                 </Col>
             </Row>
