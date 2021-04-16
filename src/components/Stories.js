@@ -62,7 +62,7 @@ function Stories() {
                 </Col>
             </Row>
             <Row>
-                <Col xs={12} md={4}>
+                <Col xs={12} md={4} className="col-div">
                     <Image src={storyimg} className="post-img img-fluid" height="100px"/>
                 </Col>
                 <Col xs={12} md={8}>
