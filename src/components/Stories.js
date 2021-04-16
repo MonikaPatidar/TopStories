@@ -1,6 +1,6 @@
 import { useEffect,useState } from 'react';
 import {Card, Button, Accordion, Container,Row,Image, Col,Alert} from 'react-bootstrap';
-import { Chat, Trophy, Book} from 'react-bootstrap-icons';
+import { Chat, Trophy} from 'react-bootstrap-icons';
 import userimg from '../images/2.jpg'
 import storyimg from '../images/1.png'
 function Stories() {
